@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeløy Regnskap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--Font-->
+    <!--Dette er en test-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+      Dette er en endring
+    /> -->
+
+    <!--Ikoner-->
+    <!-- <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script> -->
+
+    <!--CSS-stylesheet-->
+    <link rel="stylesheet" href="css/styles2.css" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              borderColor: "rgba(0, 0, 0, 0.194)",
+              bgColor: "rgba(244, 244, 244, 0.926)",
+              mainColor: "#0529f281",
+            },
+            fontFamily: {
+              Roboto: ["Roboto", "sans serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <main>
+      <!-- header section starts  -->
+
+      <header
+        class="w-full min-h-[8vh] lg:min-h-[9vh] bg-bgColor border-b-[0.01rem] border-borderColor fixed z-10"
+      >
+        <div
+          class="w-[100%] mx-auto py-2 min-h-[8vh] lg:min-h-[9vh] flex items-center justify-between lg:justify-start"
+        >
+          <a href="#" class="lg:absolute md:left-5 lg:left-20 xl:left-28 mt-2">
+            <img src="images/mindre1.png" alt="" />
+          </a>
+          <nav class="mx-auto lg:flex items-center gap-8 hidden">
+            <a
+              href="#home"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Hjem</a
+            >
+            <a
+              href="#design"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Om oss</a
+            >
+            <a
+              href="#menu"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Tjenester</a
+            >
+            <a
+              href="#referanser"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Referanser</a
+            >
+            <a
+              href="#kontakt"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Kontakt oss</a
+            >
+          </nav>
+          <div class="flex mr-5 lg:hidden cursor-pointer toggle z-10">
+            <i class="fa-solid fa-bars fa-2xl" id="menu-btn"></i>
+          </div>
+        </div>
+
+        <!-- Responsive Header -->
+
+        <div
+          class="w-[100%] min-h-[100vh] z-0 fixed bg-bgColor transition-all duration-200 ease-in-out opacity-0 pointer-events-none mobile-navbar lg:hidden"
+        >
+          <nav class="mx-auto flex flex-col items-center gap-8 px-4 mt-5">
+            <a
+              href="#home"
+              onclick="closeHamBurgerMenu()"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Hjem</a
+            >
+            <a
+              href="#design"
+              id="designLink"
+              onclick="closeHamBurgerMenu()"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Om oss</a
+            >
+            <a
+              href="#menu"
+              id="menuLink"
+              onclick="closeHamBurgerMenu()"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Tjenester</a
+            >
+            <a
+              href="#referanser"
+              id="referanserLink"
+              onclick="closeHamBurgerMenu()"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Referanser</a
+            >
+            <a
+              href="#kontakt"
+              id="kontaktLink"
+              onclick="closeHamBurgerMenu()"
+              class="hover:text-mainColor relative transition-all duration-150 ease before:content-[''] before:absolute before:-bottom-0.5 before:bg-mainColor before:h-[2px] before:w-[0%] before:hover:w-[100%] before:transition-all before:ease before:duration-150"
+              >Kontakt oss</a
+            >
+          </nav>
+        </div>
+
+        <!-- Responsive Header Ends -->
+      </header>
+
+      <!-- header section ends -->
+
+      <!-- home section starts  -->
+
+      <section
+        class="min-h-[100vh] md:min-h-fit min-h-[100vh] w-[100%] lg:w-[95%] xl:w-[88%] mx-auto"
+        id="home"
+      >
+        <div
+          class="pt-[10vh] pt-[20vh] lg:pt-[10vh] flex flex-col md:flex-row w-[100%] min-h-[100vh] md:min-h-fit lg:min-h-[100vh] pb-10 lg:pb-0 items-center justify-center"
+        >
+          <div class="w-[100%] md:w-[70%] xl:w-[60%] md:pl-3">
+            <h3
+              class="text-center md:text-left text-[32px] sm:text-[35px] md:text-[48px] lg:text-[60px] max-w-[100%] md:max-w-[620px] text-black uppercase font-Roboto font-medium md:-mt-20"
+            >
+              Jeløy Regnskap AS
+            </h3>
+
+            <p
+              class="text-center md:text-left mx-auto md:mx-0 text-[16px] sm:text-[16px] lg:text-[20px] text-black max-w-[90%] md:max-w-[620px] font-thin mb-5 leading-7 md:leading-9 mt-4 md:mt-2"
+            >
+              Jeløy Regnskap AS er et autorisert regnskapsførerselskap som
+              holder til i Krossern på Jeløya. Kontoret er familie-eid, og våre
+              små forhold sikrer tette relasjoner til alle kundene våre. Vi har
+              lang erfaring med regnskapstjenester, og bistår med blant annet
+              <strong>fakturering, bokføring, lønn og årsoppgjør</strong>. Vi
+              bistår også med økonomisk <strong>rådgivning</strong> for kunder
+              som har behov for det.
+            </p>
+            <p
+              class="text-center md:text-left mx-auto md:mx-0 text-[16px] md:text-[16px] lg:text-[20px] text-black max-w-[90%] md:max-w-[620px] font-thin mb-5 leading-7 md:leading-9 mt-5 md:mt-10"
+            >
+              Trenger du hjelp til å håndtere regnskapet ditt, og ønsker en
+              regnskapsfører som kjenner deg og din bedrift, hører vi gjerne fra
+              deg for en uforpliktende samtale. Du finner kontaktinformasjonen
+              vår
+              <a id="her" href="#kontakt">her.</a>
+            </p>
+            <div class="flex items-center justify-center md:justify-start">
+              <a
+                href="#design"
+                class="inline-block py-[10px] px-[30px] rounded-md border-transparent hover:bg-transparent border-[1.5px] hover:tracking-widest hover:border-black hover:text-black hover:text-black transition-all duration-150ms ease-in-out cursor-pointer md:ml-2 bg-mainColor text-white text-center text-[17px]"
+                >Les mer</a
+              >
+            </div>
+          </div>
+          <div class="hidden md:flex md:w-[30%] xl:w-[60%]">
+            <img
+              src="images/home.png"
+              alt="Home Image"
+              class="mx-auto -mt-20"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- home section ends -->
+
+      <!-- about section starts  -->
+
+      <section
+        class="min-h-[75vh] md:min-h-fit lg:min-h-[75vh] py-10 lg:py-0 w-[100%]"
+        id="design"
+      >
+        <div
+          class="w-[98%] min-h-[500px] sm:min-h-[420px] xl:min-h-auto lg:w-[95%] xl:w-[88%] mx-auto bg-white rounded-sm px-5 flex items-center justify-center md:justify-start flex-col md:flex-row"
+        >
+          <div class="w-[60%] lg:w-[50%] h-[100%]">
+            <img
+              src="images/LogoPc.png"
+              alt="Logo Pc"
+              class="w-[100%] h-[100%]"
+            />
+          </div>
+
+          <div class="md:ml-6 mt-5 md:-mt-1 mx-auto">
+            <h3
+              class="text-[22px] md:text-[26px] lg:text-[30px] text-center md:text-left text-black font-medium"
+            >
+              Hvorfor Jeløy Regnskap?
+            </h3>
+            <p
+              class="py-[5px] lg:py-[10px] text-[12px] text-center md:text-left lg:text-[16px] text-[rgb(31,27,27)] leading-7 md:leading-8 lg:leading-9 gap-2 sm:flex items-center justify-center md:justify-start"
+            >
+              Vi bruker det <strong>skybaserte</strong> regnskapssystemet
+              <strong>PowerOfficeGo</strong>.
+              <a
+                href="https://www.poweroffice.no"
+                class="max-w-[5%] opacity-[0.6] h-auto cursor-pointer inline-block"
+              >
+                <img
+                  src="/images/poweroffice-logo-naked.png"
+                  id="powerOffice"
+                  alt=""
+                />
+              </a>
+            </p>
+            <p
+              class="py-[5px] lg:py-[10px] text-center md:text-left text-[13px] lg:text-[16px] text-[rgb(31,27,27)] leading-6 lg:leading-9"
+            >
+              Med regnskapet i skyen, slipper du å holde orden på papirer og
+              kvitteringer. <br />
+              Scan inn kvitteringer direkte på telefonen, og la oss ta oss av
+              resten. <br />
+              Mindre tid på regnskap, betyr mer tid på drift av bedriften.
+            </p>
+            <br />
+            <p
+              class="py-[4px] lg:py-[10px] text-center md:text-left text-[13px] lg:text-[16px] text-[rgb(31,27,27)] leading-6 lg:leading-9"
+            >
+              La oss gjøre hverdagen din lettere!
+            </p>
+
+            <!--<a href="#referanser" class="btn">Les mer</a>-->
+          </div>
+        </div>
+      </section>
+
+      <!-- about section ends -->
+
+      <!-- Tjenester 1 section starts  -->
+
+      <section
+        class="min-h-[70vh] w-[95%] xl:w-[88%] flex items-center justify-center mx-auto"
+        id="menu"
+      >
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16 md:gap-10 lg:gap-16 mx-auto w-[100%] place-items-center md:place-items-start"
+        >
+          <div
+            class="sm:w-[75%] w-[95%] md:w-[100%] min-h-[500px] bg-white rounded-xl relative flex flex-col transition-all ease-in-out border-[20px] duration-300 cursor-pointer border-transparent hover:border-[#6FADF0]"
+          >
+            <div
+              class="w-[130px] h-[130px] -mt-10 z-5 absolute right-0 left-0 mx-auto top-0 flex items-center justify-center rounded-full border-[18px] border-[#6FADF0] bg-white img-circle"
+            >
+              <img src="images/2830566.png" alt="" class="w-[50px]" />
+            </div>
+            <div class="service">
+              <h4>Regnskap</h4>
+              <a href="javascript: void(0);" onclick="toggle('q1')">
+                <p
+                  class="text-[16px] text-center font-[800] italic mt-6 underline uppercase"
+                >
+                  Fakturering
+                </p>
+              </a>
+              <div class="bokser" id="q1" style="display: none">
+                <p>- Du kan fakture selv.</p>
+                <p>- Vi kan fakturere for deg.</p>
+              </div>
+              <a href="javascript: void(0);" onclick="toggle('q2')">
+                <p
+                  class="text-[16px] text-center font-[800] italic my-6 underline uppercase"
+                >
+                  Bokføring
+                </p>
+              </a>
+              <div class="bokser" id="q2" style="display: none">
+                <p>- Vi foretar løpende bokføring.</p>
+              </div>
+              <a href="javascript: void(0);" onclick="toggle('q3')">
+                <p
+                  class="text-[16px] text-center font-[800] italic my-6 underline uppercase"
+                >
+                  OCR/Remittering
+                </p>
+              </a>
+              <div class="bokser" id="q3" style="display: none">
+                <p>- Du oppretter egen avtale med banken.</p>
+              </div>
+              <a href="javascript: void(0);" onclick="toggle('q4')">
+                <p
+                  class="text-[16px] text-center font-[800] italic my-6 underline uppercase"
+                >
+                  MVA-rapportering
+                </p>
+              </a>
+              <div class="bokser" id="q4" style="display: none">
+                <p>- Vi sørger for rapportering til rett tid.</p>
+              </div>
+              <a href="javascript: void(0);" onclick="toggle('q5')">
+                <p
+                  class="text-[16px] text-center font-[800] italic my-6 underline uppercase"
+                >
+                  Budsjettering
+                </p>
+              </a>
+              <div class="bokser" id="q5" style="display: none">
+                <p>
+                  - Vi hjelper deg med å utarbeide budsjett for din virksomhet.
+                </p>
+              </div>
+              <a href="javascript: void(0);" onclick="toggle('q6')">
+                <p
+                  class="text-[16px] text-center font-[800] italic my-6 underline uppercase"
+                >
+                  Rapporter
+                </p>
+              </a>
+              <div class="bokser" id="q6" style="display: none">
+                <p>
+                  - Vi utarbeider rapporter slik at du til enhver tid har
+                  oversikt over din økonomiske situasjon.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="sm:w-[75%] w-[95%] md:w-[100%] min-h-[500px] bg-white rounded-xl relative flex flex-col transition-all ease-in-out border-[20px] duration-300 cursor-pointer border-transparent hover:border-[#6FADF0]"
+          >
+            <div
+              class="w-[130px] h-[130px] -mt-10 z-5 absolute right-0 left-0 mx-auto top-0 flex items-center justify-center rounded-full border-[18px] border-[#6FADF0] bg-white img-circle"
+            >
+              <img src="images/2830566.png" alt="" class="w-[50px]" />
+            </div>
+            <div class="service">
+              <h4>Årsoppgjør</h4>
+              <a href="javascript: void(0);" onclick="toggle('q7')">
+                <p
+                  class="text-[16px] text-center font-[800] italic mt-6 underline uppercase"
+                >
+                  Skattemelding
+                </p>
+              </a>
+              <div class="bokser" id="q7" style="display: none">
+                <p>
+                  - Vi utarbeider din skattemelding med alle tilhørende
+                  ligningspapirer, og sørger for levering til rett tid.
+                </p>
+              </div>
+              <a href="javascript: void(0);" onclick="toggle('q8')">
+                <p
+                  class="text-[16px] text-center font-[800] italic my-6 underline uppercase"
+                >
+                  Årsregnskap
+                </p>
+              </a>
+              <div class="bokser" id="q8" style="display: none">
+                <p>
+                  - Vi utarbeider ditt årsregnskap med tilhørende noter, og
+                  sørger for innlevering til rett tid.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="sm:w-[75%] w-[95%] md:w-[100%] min-h-[500px] bg-white rounded-xl relative flex flex-col transition-all ease-in-out border-[20px] duration-300 cursor-pointer border-transparent hover:border-[#6FADF0]"
+          >
+            <div
+              class="w-[130px] h-[130px] -mt-10 z-5 absolute right-0 left-0 mx-auto top-0 flex items-center justify-center rounded-full border-[18px] border-[#6FADF0] bg-white img-circle"
+            >
+              <img src="images/2830566.png" alt="" class="w-[50px]" />
+            </div>
+            <div class="service">
+              <h4>Lønn</h4>
+              <a href="javascript: void(0);" onclick="toggle('q9')">
+                <p
+                  class="text-[16px] text-center font-[800] italic mt-6 underline uppercase"
+                >
+                  Fastlønn/Timelønn
+                </p>
+              </a>
+              <div class="bokser" id="q9" style="display: none">
+                <p>
+                  - Vi kan følge opp dine månedlige faste lønnsutbetalinger, og
+                  sørge for utbetaling til rett tid. <br /><br />
+                  For timelønte sender du oss grunnlaget hver måned, og vi
+                  foretar lønnsutbetaling iht. dette.
+                </p>
+              </div>
+              <a href="javascript: void(0);" onclick="toggle('q10')">
+                <p
+                  class="text-[16px] text-center font-[800] italic my-6 underline uppercase"
+                >
+                  A-melding
+                </p>
+              </a>
+              <div class="bokser" id="q10" style="display: none">
+                <p>
+                  - Vi sørger for at alle innberetningspliktige beløp blir
+                  innberettet til rett tid.
+                </p>
+              </div>
+              <a href="javascript: void(0);" onclick="toggle('q11')">
+                <p
+                  class="text-[16px] text-center font-[800] italic my-6 underline uppercase"
+                >
+                  Terminoppgjør
+                </p>
+              </a>
+              <div class="bokser" id="q11" style="display: none">
+                <p>
+                  - Vi avstemmer alle lønnsgrunnlag for hver termin og
+                  utarbeider betalingsgrunnlag for forskuddstrekk og
+                  arbeidsgiveravgift.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tjenester 1 section ends -->
+
+      <!-- Referanse section starts 
+
+      <section
+        class="py-8 min-h-[60vh] w-[95%] xl:w-[88%] flex items-center justify-center mx-auto"
+        id="referanser"
+      >
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mx-auto w-[100%] place-items-center md:place-items-start"
+        >
+          <div
+            class="w-[95%] sm:w-[75%] md:w-[100%] border-borderColor border-[0.01rem] py-[30px] px-[20px] text-center"
+          >
+            <img src="images/quote-img.png" alt="" class="mx-auto" />
+            <p class="py-[20px] leading-7 text-[15px] text-[#cccccc]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+              nulla sit libero nemo fuga sequi nobis? Necessitatibus aut
+              laborum, nisi quas eaque laudantium consequuntur iste ex aliquam
+              minus vel? Nemo.
+            </p>
+            <img
+              src="images/pic-1.png"
+              class="w-[70px] h-[70px] rounded-full cover mx-auto"
+              alt=""
+            />
+            <h3 class="py-[10px] text-[20px] text-black">Kunde 1</h3>
+            <div class="my-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <div
+            class="w-[95%] sm:w-[75%] md:w-[100%] border-borderColor border-[0.01rem] py-[30px] px-[20px] text-center"
+          >
+            <img src="images/quote-img.png" alt="" class="mx-auto" />
+            <p class="py-[20px] leading-7 text-[15px] text-[#cccccc]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+              nulla sit libero nemo fuga sequi nobis? Necessitatibus aut
+              laborum, nisi quas eaque laudantium consequuntur iste ex aliquam
+              minus vel? Nemo.
+            </p>
+            <img
+              src="images/pic-2.png"
+              class="w-[70px] h-[70px] rounded-full cover mx-auto"
+              alt=""
+            />
+            <h3 class="py-[10px] text-[20px] text-black">Kunde 2</h3>
+            <div class="my-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+          <div
+            class="w-[95%] sm:w-[75%] md:w-[100%] border-borderColor border-[0.01rem] py-[30px] px-[20px] text-center"
+          >
+            <img src="images/quote-img.png" alt="" class="mx-auto" />
+            <p class="py-[20px] leading-7 text-[15px] text-[#cccccc]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+              nulla sit libero nemo fuga sequi nobis? Necessitatibus aut
+              laborum, nisi quas eaque laudantium consequuntur iste ex aliquam
+              minus vel? Nemo.
+            </p>
+            <img
+              src="images/pic-3.png"
+              class="w-[70px] h-[70px] rounded-full cover mx-auto"
+              alt=""
+            />
+            <h3 class="py-[10px] text-[20px] text-black">Kunde 3</h3>
+            <div class="my-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      Referanse section ends -->
+
+      <!--Kontakt section 1 starts -->
+
+      <section
+        class="min-h-[70vh] w-[95%] xl:w-[88%] mx-auto py-5"
+        id="kontakt"
+      >
+        <div class="flex items-center flex-col md:flex-row bg-white">
+          <div
+            class="relative w-[100%] md:w-[400px] lg:w-[500px] xl:w-[600px] h-[400px] md:h-[500px] lg:h-[550px] text-right"
+          >
+            <div
+              class="w-[100%] h-[400px] md:h-[500px] lg:h-[550px] overflow-hidden"
+            >
+              <iframe
+                width="100%"
+                height="100%"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=krossern%2018&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+              ></iframe
+              ><a href="https://123movies-to.org">123 movies</a><br /><a
+                href="https://www.embedgooglemap.net"
+                >using google maps on websites</a
+              >
+            </div>
+          </div>
+
+          <form
+            action="https://formsubmit.co/cathrine.solbakken@alinco.no"
+            method="POST"
+            class="mx-auto flex-1 px-[20px] mt-5 md:mt-0"
+          >
+            <h4
+              class="uppercase text-[16px] md:text-[20px] text-[rgba(0,0,0,0.791)] text-center"
+            >
+              Send oss en mail for en uforpliktende prat!
+            </h4>
+
+            <fieldset>
+              <!-- <div>
+                <input type="hidden" name="_captcha" value="false" />
+              </div> -->
+              <div
+                class="flex items-center my-[14px] md:my-[20px] bg-bgColor border-borderColor border-[0.01rem] rounded-sm"
+              >
+                <input
+                  class="form-control br-b w-[100%] p-[14px] md:p-[20px] text-[17px] text-black bg-transparent rounded-sm transition-all duration-150 ease-in-out outline outline-transparent focus:outline-[#6FADF0]"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Navn"
+                />
+              </div>
+
+              <div
+                class="flex items-center my-[14px] md:my-[20px] bg-bgColor border-borderColor border-[0.01rem] rounded-sm"
+              >
+                <input
+                  class="form-control br-b w-[100%] p-[14px] md:p-[20px] text-[17px] text-black bg-transparent rounded-sm transition-all duration-150 ease-in-out outline outline-transparent focus:outline-[#6FADF0]"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="E-post"
+                />
+              </div>
+
+              <div
+                class="flex items-center my-[14px] md:my-[20px] bg-bgColor border-borderColor border-[0.01rem] rounded-sm"
+              >
+                <textarea
+                  name="textarea"
+                  id="textarea"
+                  cols="94"
+                  rows="10"
+                  placeholder="...."
+                  class="italic text-[12px] w-[100%] text-black bg-transparent rounded-sm transition-all duration-150 ease-in-out outline outline-transparent focus:outline-[#6FADF0]"
+                ></textarea>
+              </div>
+            </fieldset>
+
+            <div class="flex items-center justify-center py-2 lg:py-0">
+              <input
+                type="submit"
+                name="submit"
+                value="Send melding"
+                id="submit"
+                class="py-3 px-6 rounded-md text-white bg-mainColor cursor-pointer transition-all duration-150 ease-in-out hover:bg-transparent hover:text-mainColor border-[1.5px] border-transparent hover:border-mainColor"
+              />
+            </div>
+            <input type="hidden" name="_captcha" value="false" />
+
+            <div id="alert"></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Kontakt section ends -->
+
+      <!-- footer section starts  -->
+
+      <footer class="bg-[#ffffffcf] text-center py-8">
+        <div class="text-[20px] text-black font-thin">
+          <p>Jeløy Regnskap AS, org.nr. 830129952</p>
+          <p>Krossern 18, 1513 Moss</p>
+        </div>
+      </footer>
+
+      <!-- footer section ends -->
+
+      <!-- Scroll to top button -->
+
+      <button class="scroll-btn">&uarr;</button>
+    </main>
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
