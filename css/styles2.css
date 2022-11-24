@@ -115,3 +115,7 @@ body {
   transition: opacity 300ms, transform 300ms;
   pointer-events: all;
 }
+
+#telefonnr{
+  text-decoration:overline
+}
